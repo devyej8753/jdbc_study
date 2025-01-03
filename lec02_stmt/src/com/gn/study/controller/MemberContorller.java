@@ -7,6 +7,11 @@ import com.gn.study.model.vo.Member;
 
 public class MemberContorller {
 	
+	public List<Member> memberIdSearch() {
+		List<Member> list = new MemberDao().memberIdSearch();
+		return list;
+	}
+	
 	public List<Member> selectMemberAll() {
 		List<Member> list = new MemberDao().selectMemberAll();
 		return list;

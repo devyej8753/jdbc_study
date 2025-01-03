@@ -31,10 +31,20 @@ public class MemberMenu {
 			switch(menu) {
 				case 1 : createMember();break;
 				case 2 : selectMemberAll();break;
+				case 3 : memberIdSearch();break;
 				case 0 : System.out.println("잘가요~ 내 소중한 사람~~~~");return;
 				default : System.out.println("잘못된 번호입니다.");
 			}
 		}
+	}
+	// 회원 아이디 검색
+	public void memberIdSearch() {
+		System.out.println("=== 회원 아이디 검색 ===");
+		System.out.print("아이디 검색 : ");
+		String str = sc.nextLine();
+		List<Member> list = mc.memberIdSearch();
+		
+		
 	}
 	// 전체 회원 조회
 	public void selectMemberAll() {
