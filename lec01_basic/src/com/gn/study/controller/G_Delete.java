@@ -31,7 +31,7 @@ public class G_Delete {
 			}
 			
 		}catch(Exception e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}finally {
 			try {
 				stmt.close();
