@@ -31,18 +31,91 @@ public class MemberMenu {
 			switch(menu) {
 				case 1 : createMember();break;
 				case 2 : selectMemberAll();break;
-				case 3 : memberIdSearch();break;
-				case 0 : System.out.println("잘가요~ 내 소중한 사람~~~~");return;
+				case 3 : selectMemberOneById();break;
+				case 4 : selectKeywordName();break;
+				case 5 : updateMember();break;
+				case 6 : MemberSecession();break;
+				case 0 : System.out.println("안녕히 계세요 여러분!\r\n"
+						+ "전 이 세상의 모든 굴레와 속박을 벗어 던지고 제 행복을 찾아 떠납니다!\r\n"
+						+ "여러분도 행복하세요~~!");return;
 				default : System.out.println("잘못된 번호입니다.");
 			}
 		}
 	}
+	// 회원 탈퇴
+	public void MemberSecession() {
+		System.out.println("=== 회원탈퇴 ===");
+		System.out.print("아이디 : ");
+		String id = sc.nextLine();
+		System.out.print("비밀번호 : ");
+		String pw = sc.nextLine();
+		
+			int result = mc.MemberSecession(id, pw);
+			if(result > 0) {
+				System.out.println("탈퇴 성공");
+			}else {
+				System.out.println("탈퇴 실패ㅠㅠ");
+			}
+		}
+	
+	// 회원 정보 수정
+	public void updateMember() {
+		// 관리자 -> 모든 회원 정보 수정
+		// 사용자 -> 내것만 수정
+		System.out.println("=== 회원 정보 수정 ===");
+		System.out.print("아이디 : ");
+		String id = sc.nextLine();
+		System.out.print("비밀번호 : ");
+		String pw = sc.nextLine();
+		Member m = mc.selectMemberOneByIdAndPw(id,pw);
+		if(m != null) {
+			System.out.println(m);
+			// 이메일, 전화번호 ,이름 -> 수정
+			System.out.print("이름 : ");
+			String name = sc.nextLine();
+			System.out.print("전화번호 : ");
+			String phone = sc.nextLine();
+			System.out.print("이메일 : ");
+			String email = sc.nextLine();
+			int result = mc.updateMemberInfo(name,phone,email,id);
+			if(result > 0) {
+				System.out.println("수정 성공!");
+			}else {
+				System.out.println("수정 실패ㅠㅠ");
+			}
+		}else {
+			System.out.println("잘못된 아이디 혹은 비밀번호입니다.");
+		}
+	}
+	
+	
+	// 회원 이름으로 키워드 검색
+	public void selectKeywordName() {
+		System.out.println("=== 이름 키워드 검색 ===");
+		System.out.print("키워드 : ");
+		String name = sc.nextLine();
+		List<Member> list = mc.selectKeywordName(name);
+		if(list.isEmpty() == false) {
+			for(Member m : list) {
+				System.out.println(m);
+			}
+		}else {
+			System.out.println(name+"는 존재하지 않는 정보입니다.");
+		}
+	}
+	
 	// 회원 아이디 검색
-	public void memberIdSearch() {
+	public void selectMemberOneById() {
 		System.out.println("=== 회원 아이디 검색 ===");
 		System.out.print("아이디 검색 : ");
-		String str = sc.nextLine();
-		List<Member> list = mc.memberIdSearch();
+		String id = sc.nextLine();
+		// WHERE -> =(UNIQUE / X) / LIKE 
+		Member m = mc.searchMemberOneById(id);
+		if(m != null) {
+			System.out.println(m);
+		}else {
+			System.out.println(id+"는 존재하지 않는 정보입니다.");
+		}
 		
 		
 	}
