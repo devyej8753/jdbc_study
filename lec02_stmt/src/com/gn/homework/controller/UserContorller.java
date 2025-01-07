@@ -12,8 +12,10 @@ public class UserContorller {
 		return result;
 	}
 	// 로그인
-//	public User login(String userId ,String userPw) {
-//		return new UserDao().login();
+	public User login(String userId ,String userPw) {
+		return new UserDao().login(userId ,userPw);
+		
+		
 	}
 	
 }

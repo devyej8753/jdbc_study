@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.gn.homework.controller.MusicContorller;
 import com.gn.homework.controller.UserContorller;
+import com.gn.homework.model.vo.User;
 
 public class MainMenu {
 	private Scanner sc = new Scanner(System.in);
@@ -50,6 +51,13 @@ public class MainMenu {
 		String userId = sc.nextLine();
 		System.out.print("비밀번호 : ");
 		String userPw = sc.nextLine();
+		
+		User u = uc.login(userId, userPw);
+		if(u != null) {
+			System.out.println(userId+"님, 환영합니다");
+		}else {
+			System.out.println(userId+"는 존재하지 않는 정보입니다");
+		}
 		
 	}
 	
