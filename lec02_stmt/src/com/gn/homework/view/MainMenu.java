@@ -23,7 +23,7 @@ public class MainMenu {
 			switch(menu) {
 				case 1 : insertUser();break;
 				case 2 : login();break;
-				case 3 : System.out.println("로그아웃");return;
+				case 3 : System.out.println("로그아웃 되었습니다.");return;
 				default : System.out.println("잘못된 번호입니다.");
 			}
 		}

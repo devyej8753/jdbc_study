@@ -7,7 +7,12 @@ public class Music {
 	private int playCount;
 	
 	public Music() {}
-
+	
+	public Music(String songTitle,String artistName) {
+		this.songTitle = songTitle;
+		this.artistName = artistName;
+	}
+	
 	public Music(int songNo, String songTitle, String artistName, int playCount) {
 		this.songNo = songNo;
 		this.songTitle = songTitle;
