@@ -9,5 +9,5 @@ public class MusicContorller {
 		int result = md.insertMusicOne(songTitle,artistName);
 		return result;
 			
-	}
+	} 
 }
