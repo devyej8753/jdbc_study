@@ -81,7 +81,7 @@ public class MainMenu {
 				case 1 : insertMusicOne();break;
 				case 2 : selectMusicTop10();break;
 				case 3 : System.out.println("프로그램을 종료합니다!!");return;
-				default : System.out.println("잘못된 번호입니다.");
+				default : System.out.println("잘못된 번호입니다.");break;
 			}
 		}
 	}
@@ -113,5 +113,48 @@ public class MainMenu {
 	}
 	public void userMenu() {
 		System.out.println("*** 사용자메뉴 ***");
+		System.out.println("1. 음악재생");
+		System.out.println("2. 개인 정보 수정");
+		System.out.println("3. 회원 탈퇴");
+		System.out.println("4. !!종료!! ");
+		System.out.print("메뉴 : ");
+		int menu = sc.nextInt();
+		sc.nextLine();
+		while(true) {
+			switch(menu) {
+				case 1 : musicPlay();break;
+				case 2 :break;
+				case 3 :break;
+				case 4 :System.out.println("사용자메뉴를 종료하겠습니다!");return;
+			}
+		}
 	}
+	public void musicPlay() {
+		System.out.println("*** 음악재생 ***");
+		List<Music> list = mc.selectMusicAll();
+		printList(list);
+		System.out.println("재생할 음악 번호를 입력해주세요");
+		System.out.print("입력 : ");
+		int play = sc.nextInt();
+		sc.nextLine();
+		int result = mc.musicPlay(play);
+		if(result != 0) {
+			
+		}
+		
+	}
+	
+	public void printList(List<Music> list) {
+		if(list.isEmpty()) {
+			System.out.println("조회된 결과가 없습니다.");
+		}else {
+			for(Music c : list) {
+				System.out.println(c);
+			}
+		}
+	}
+	
+	
+	
+	
 }

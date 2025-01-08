@@ -54,7 +54,7 @@ public class Music {
 
 	@Override
 	public String toString() {
-		return "음악 [음악번호=" + songNo + ", 음악제목=" + songTitle + ", 아티스트명=" + artistName + ", 재생 횟수="
+		return "음악 [음악번호= " + songNo + ", 음악제목= " + songTitle + ", 아티스트명= " + artistName + ", 재생 횟수= "
 				+ playCount + "]";
 	}
 	

@@ -15,7 +15,14 @@ public class MusicContorller {
 	} 
 	// 인기순위조회
 	public List<Music> selectMusicTop10(){
-		
 		return md.selectMusicTop10();
+	}
+	// 음악전체조회
+	public List<Music> selectMusicAll(){
+		return md.selectMusicAll();
+	}
+	public int musicPlay(int playCount) {
+		int result = md.musicPlay(playCount);
+		return result;
 	}
 }
