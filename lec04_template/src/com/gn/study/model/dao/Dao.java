@@ -20,20 +20,27 @@ public class Dao {
 			String sql = "UPDATE car "
 						+ "SET car_model = ? "
 						+ "WHERE car_no = ? ";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, carName);
-			pstmt.setInt(2, carNo);
-			result = pstmt.executeUpdate();
+			if(carName != null) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, carName);
+				pstmt.setInt(2, carNo);
+				result = pstmt.executeUpdate();
+			}
+			
 			String sql2 = "UPDATE car SET car_price = ? WHERE car_no = ?";
-			pstmt = conn.prepareStatement(sql2);
-			pstmt.setInt(1, carPrice);
-			pstmt.setInt(2, carNo);
-			result = pstmt.executeUpdate();
+			if(carPrice != 0) {
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, carPrice);
+				pstmt.setInt(2, carNo);
+				result = pstmt.executeUpdate();
+			}
 			String sql3 = "UPDATE car SET car_date = ? WHERE car_no = ?";
-			pstmt = conn.prepareStatement(sql3);
-			pstmt.setString(1, carDate);
-			pstmt.setInt(2, carNo);
-			result = pstmt.executeUpdate();
+			if(carDate != null) {
+				pstmt = conn.prepareStatement(sql3);
+				pstmt.setString(1, carDate);
+				pstmt.setInt(2, carNo);
+				result = pstmt.executeUpdate();
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
