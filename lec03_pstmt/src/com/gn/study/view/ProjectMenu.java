@@ -45,10 +45,7 @@ public class ProjectMenu {
 		System.out.println("삭제하고자 하는 프로젝트 번호와 프로젝트 이름을 입력하시면 프로젝트를 삭제해드립니다.");
 		System.out.print("번호 : ");
 		int deleteNo = sc.nextInt();
-		sc.nextLine();
-		System.out.print("프로젝트 명 : ");
-		String deleteName = sc.nextLine();
-		int result = pc.deleteProjectOne(deleteNo,deleteName);
+		int result = pc.deleteProjectOne(deleteNo);
 		printProjectResult(result,"프로젝트 삭제");
 	}
 	

@@ -9,8 +9,8 @@ public class ProjectController {
 	private ProjectDao pd = new ProjectDao();
 	
 	// 프로젝트 삭제
-	public int deleteProjectOne(int deleteNo,String deleteName) {
-		int result = pd.deleteProjectOne(deleteNo,deleteName);
+	public int deleteProjectOne(int deleteNo) {
+		int result = pd.deleteProjectOne(deleteNo);
 		return result;
 	}
 	

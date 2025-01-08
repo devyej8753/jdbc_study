@@ -12,7 +12,7 @@ import com.gn.study.model.vo.ProjectVo;
 public class ProjectDao {
 	
 	// 프로젝트 삭제
-	public int deleteProjectOne(int deleteNo, String deleteName) {
+	public int deleteProjectOne(int deleteNo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -24,10 +24,9 @@ public class ProjectDao {
 			conn = DriverManager.getConnection(url,user,pw);
 			
 			String sql = "DELETE FROM project "
-					+ "WHERE project_name = ? AND project_id = ? ";
+					+ "WHERE project_id = ? ";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, deleteName);
-			pstmt.setInt(2, deleteNo);
+			pstmt.setInt(1, deleteNo);
 			
 			result = pstmt.executeUpdate();
 		}catch(Exception e) {
