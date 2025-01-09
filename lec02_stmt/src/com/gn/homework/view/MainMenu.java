@@ -126,6 +126,7 @@ public class MainMenu {
 				case 2 :break;
 				case 3 :break;
 				case 4 :System.out.println("사용자메뉴를 종료하겠습니다!");return;
+				default : System.out.println("잘못된 번호입니다.");break;
 			}
 		}
 	}
@@ -138,9 +139,10 @@ public class MainMenu {
 		int play = sc.nextInt();
 		sc.nextLine();
 		int result = mc.musicPlay(play);
-		if(result != 0) {
+		if(result > 0) {
 			
 		}
+		
 		
 	}
 	
