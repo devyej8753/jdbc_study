@@ -1,5 +1,6 @@
 package com.gn.homework.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -131,28 +132,26 @@ public class MainMenu {
 	}
 	public void musicPlay() {
 		System.out.println("*** 음악재생 ***");
-		List<Music> list = mc.selectMusicAll();
-		printList(list);
+		List<Music> list = new ArrayList<Music>();
+		list = mc.selectMusicAll();
 		System.out.println("재생할 음악 번호를 입력해주세요");
+		if(list.isEmpty()) {
+			System.out.println("재생할 수 있는 음악 목록이 없습니다.");
+		}else {
+			for(Music m : list) {
+				System.out.println(m);
+			}
+		}
 		System.out.print("입력 : ");
 		int play = sc.nextInt();
 		sc.nextLine();
-		int result = mc.musicPlay(play);
-		if(result != 0) {
-			
+		int m = mc.musicPlay(play);
+		if(m > 0) {
+			System.out.println(m);
 		}
 		
 	}
 	
-	public void printList(List<Music> list) {
-		if(list.isEmpty()) {
-			System.out.println("조회된 결과가 없습니다.");
-		}else {
-			for(Music c : list) {
-				System.out.println(c);
-			}
-		}
-	}
 	
 	
 	
