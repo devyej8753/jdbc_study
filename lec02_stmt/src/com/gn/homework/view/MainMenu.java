@@ -145,9 +145,9 @@ public class MainMenu {
 		System.out.print("입력 : ");
 		int play = sc.nextInt();
 		sc.nextLine();
-		int m = mc.musicPlay(play);
-		if(m > 0) {
-			System.out.println(m);
+		int result = mc.musicPlay(play);
+		if(result > 0) {
+			System.out.println(result);
 		}
 		
 	}
