@@ -138,8 +138,8 @@ public class MainMenu {
 		if(list.isEmpty()) {
 			System.out.println("재생할 수 있는 음악 목록이 없습니다.");
 		}else {
-			for(Music m : list) {
-				System.out.println(m);
+			for(Music m1 : list) {
+				System.out.println(m1);
 			}
 		}
 		System.out.print("입력 : ");
