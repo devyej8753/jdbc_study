@@ -21,8 +21,8 @@ public class MusicContorller {
 	public List<Music> selectMusicAll(){
 		return md.selectMusicAll();
 	}
-	public int musicPlay(int playCount) {
-		int result = md.musicPlay(playCount);
+	public int musicPlay(int songNo) {
+		int result = md.musicPlay(songNo);
 		return result;
 	}
 }

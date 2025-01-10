@@ -113,7 +113,7 @@ public class MusicDao {
 		}
 		return list;
 	}
-	public int musicPlay(int playCount) {
+	public int musicPlay(int songNo) {
 		Connection conn = null;
 		Statement stmt = null;
 		int result = 0;
@@ -126,7 +126,8 @@ public class MusicDao {
 			stmt = conn.createStatement();
 			
 			String sql = "UPDATE wm_song "
-					+ "SET play_count = '"+playCount+"'";
+					+ "SET play_count = play_count+1 "
+					+ "WHERE song_no = " + songNo;
 			result = stmt.executeUpdate(sql);
 		}catch(Exception e) {
 			e.printStackTrace();
