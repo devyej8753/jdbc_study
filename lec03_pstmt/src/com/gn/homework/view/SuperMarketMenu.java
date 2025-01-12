@@ -67,7 +67,7 @@ public class SuperMarketMenu {
 		switch(menu) {
 			case 1 : insertProduct();break;
 			case 2 : updateProductOne();break;
-			case 3 : break;
+			case 3 : selectBuyListAll();break;
 			case 0 : System.out.println("이용해주셔서 감사합니다!");return;
 			default : System.out.println("뚜앗 그런 메뉴는 없당께!!");break;
 			}
@@ -111,12 +111,36 @@ public class SuperMarketMenu {
 			}
 		}
 	}
-	
+	// 판매 현황
+	public void selectBuyListAll() {            
+	bc.selectBuyListAll();
+	}
 	// 사용자 메뉴
 	public void userMenu(String userId) {
 		System.out.println("*** 사용자 메뉴 ***");
+		System.out.println("1. 제품구매");
+		System.out.println("2. 개인정보수정");
+		System.out.println("3. 회원탈퇴");
+		System.out.println("4. 로그아웃");
+		System.out.print("메뉴 : ");
+		int menu = sc.nextInt();
+		sc.nextLine();
+		switch(menu) {
+			case 1 : ProductBuy();break;
+			case 2 : updateUser();break;
+			case 3 : deleteUser();break;
+			case 4 : System.out.println("이용해주셔서 감사합니다.");return;
+			default : System.out.println("엥 그런번호는 없는디^^");
+		}
 	}
-	
-	
+	public void ProductBuy() {
+		System.out.println("*** 제품구매 ***");
+	}
+	public void updateUser() {
+		System.out.println("*** 개인정보수정 ***");
+	}
+	public void deleteUser() {
+		System.out.println("*** 회원 탈퇴 ***");
+	}
 	
 }

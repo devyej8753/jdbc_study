@@ -8,6 +8,17 @@ public class Buy {
 	private int buyAmount;
 	
 	public void Buy() {}
+	
+	public Buy(String userId, int productNo, int buyAmount) {
+		this.userId = userId;
+		this.productNo = productNo;
+		this.buyAmount = buyAmount;
+	}
+	public Buy(String userNickname, String productName, int buyAmount) {
+		this.userName = userNickname;
+		this.productName = productName;
+		this.buyAmount = buyAmount;
+	}
 
 	public Buy(String userId, int productNo, String userName, String productName, int buyAmount) {
 		super();
