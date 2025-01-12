@@ -1,6 +1,7 @@
 package com.gn.homework.model.vo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class User {
 	private int userNo;
@@ -12,6 +13,12 @@ public class User {
 	
 	public User() {}
 
+	public User(String userId , String userPw) {
+		this.userId = userId;
+		this.userPw = userPw;
+	}
+	
+	
 	public User(int userNo, String userId, String userPw, String userName, LocalDateTime regDate,
 			LocalDateTime modDate) {
 		super();
@@ -73,8 +80,11 @@ public class User {
 
 	@Override
 	public String toString() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
+		String regDateStr = dtf.format(regDate);
+		String modDateStr = dtf.format(modDate);
 		return " [번호 = " + userNo + ", 아이디 = " + userId + ", 비밀번호 = " + userPw + ", 닉네임 = " + userName
-				+ ", 회원가입 일 = " + regDate + ", 회원정보 수정 일자 = " + modDate + "]";
+				+ ", 회원가입 일 = " + regDateStr + ", 회원정보 수정 일자 = " + modDateStr + "]";
 	}
 	
 	

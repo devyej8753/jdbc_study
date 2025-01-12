@@ -59,4 +59,45 @@ public class UserDao {
 		}
 		return result;
 	}
+	public String loginMenu(User u) {
+		Connection conn = null;
+		Statement  stmt = null;
+		ResultSet rs = null;
+		String name = null;
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			String url = "jdbc:mariadb://127.0.0.1:3306/super_market";
+			String id = "scott";
+			String pw = "tiger";
+			
+			conn = DriverManager.getConnection(url,id,pw);
+			conn.setAutoCommit(false);
+			stmt = conn.createStatement();
+			
+			String sql = "SELECT user_name "
+					+ "FROM sm_user "
+					+ "WHERE user_id = '"+u.getUserId()+"' "
+					+ "AND user_pw = '"+u.getUserPw()+"'";
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				name = rs.getString("user_name");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null)rs.close();
+				if(stmt != null)stmt.close();
+				if(conn != null)conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return name;
+		
+	}
+	
+	
+	
 }
