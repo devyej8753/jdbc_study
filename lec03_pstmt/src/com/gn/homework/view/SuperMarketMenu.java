@@ -24,7 +24,7 @@ public class SuperMarketMenu {
 			System.out.print("메뉴 : ");
 			int menu = sc.nextInt();
 			sc.nextLine();
-			switch(menu) {
+			switch(menu) { 
 				case 1 : userJoin();break;
 				case 2 : loginMenu();break;
 				case 0 : System.out.println("이용해주셔서 감사합니다.");return;
